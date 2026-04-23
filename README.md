@@ -33,6 +33,9 @@ The following steps were performed:
 - Accessed via system IP address using curl
 - Result: Web page loaded successfully
 
+Note: Testing was performed using the system’s IP address instead of localhost because firewall rules do not apply to loopback traffic.
+
+....
 ### After Applying Firewall Rule
 - Port 80 was blocked using UFW
 - Attempted access again using curl
@@ -61,6 +64,10 @@ All screenshots are available in the `/screenshots` folder, showing:
 - Rule configuration
 - Successful and failed connection tests
 - Nmap verification
+
+##  Security Insight
+
+This experiment demonstrates that firewalls control external traffic but do not typically block internal loopback communication. Proper testing must therefore simulate external access using a real IP address.
 
 ---
 
