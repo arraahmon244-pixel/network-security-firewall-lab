@@ -1,0 +1,47 @@
+TESTING FIREWALL CONFIGURATION
+
+Step 1: Started Apache Web Server
+Command:
+sudo systemctl start apache2
+
+Result:
+Web server was successfully running.
+
+--------------------------------------------------
+
+Step 2: Tested before applying firewall rule
+Command:
+curl http://<your-ip>
+
+Result:
+Apache default page was displayed successfully.
+
+--------------------------------------------------
+
+Step 3: Applied firewall rule to block port 80
+Command:
+sudo ufw deny 80
+
+--------------------------------------------------
+
+Step 4: Tested after applying firewall rule
+Command:
+curl http://<your-ip>
+
+Result:
+Connection failed, indicating access to port 80 was blocked.
+
+--------------------------------------------------
+
+Step 5: Verified using Nmap
+Command:
+nmap -p 80 <your-ip>
+
+Result:
+PORT   STATE    SERVICE
+80/tcp filtered http
+
+--------------------------------------------------
+
+Conclusion:
+The firewall successfully blocked incoming traffic on port 80.
