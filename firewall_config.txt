@@ -1,0 +1,12 @@
+# Enable firewall
+sudo ufw enable
+
+# Set default policies
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+
+# Block HTTP port
+sudo ufw deny 80
+
+# Allow SSH access
+sudo ufw allow ssh
